@@ -1,0 +1,8 @@
+{
+  "signup": {
+    "username": "Ім'я користувача",
+    "changeButtonValue": "Вже зареестровані? Увійти",
+    "emptyField": "Будь-ласка заповніть поле",
+    "confirmPasswordField": "Паролі не співпадають" 
+  }
+}

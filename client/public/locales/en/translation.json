@@ -1,0 +1,8 @@
+{
+  "signup": {
+    "username": "Username",
+    "changeButtonValue": "Already have an account? Login",
+    "emptyField": "Please fill this field",
+    "confirmPasswordField": "Confirm password not match"
+  }
+}

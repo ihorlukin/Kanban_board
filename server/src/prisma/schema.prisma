@@ -1,0 +1,49 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url = env("DATABASE_URL")
+}
+
+model User {
+  id String @id @default(cuid())
+  email String @unique
+  username String
+  hashedPassword String
+  hashedRt String?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  boards Board[]
+}
+
+model Task {
+  id String @id @default(cuid())
+  section Section @relation(fields: [sectionId], references: [id], onDelete: Cascade)
+  sectionId String
+  title String @default("")
+  content String @default("")
+  position Int
+}
+
+model Section {
+  id String @id @default(cuid())
+  board Board @relation(fields: [boardId], references: [id], onDelete: Cascade)
+  boardId String
+  title String @default("")
+  tasks Task[]
+}
+
+model Board {
+  id String @id @default(cuid())
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+  userId String
+  icon String @default("📃")
+  title String @default("Untitled")
+  description String @default("Add description here\n🟢 You can add multiline description\n🟢 Let's start...")
+  position Int
+  favourite Boolean @default(false)
+  favouritePosition Int @default(0)
+  sections Section[]
+}
