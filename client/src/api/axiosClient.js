@@ -1,7 +1,7 @@
 import axios from 'axios';
 import queryString from 'query-string';
 
-const baseUrl = 'https://kanban-board-k5jovapo0-ihorlukins-projects.vercel.app/';
+const baseUrl = 'https://kanban-board-roan.vercel.app';
 const getAccessToken = () => localStorage.getItem('access_token');
 const getRefreshToken = () => localStorage.getItem('refresh_token');
 const axiosClient = axios.create({
